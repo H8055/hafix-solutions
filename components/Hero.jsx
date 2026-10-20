@@ -7,23 +7,37 @@ import { hero, stats } from '@/lib/content';
 import Icon from '@/components/Icons';
 import Reveal from '@/components/Reveal';
 
+const heroImages = [
+  '/images/hero-studio.png',
+  '/images/hero-dammam-bluehour.png',
+  '/images/hero-creative-studio.png',
+  '/images/hero-gulf-architecture.png',
+];
+
 export default function Hero() {
   const { t, lang } = useLang();
   const words = hero.rotator[lang] || hero.rotator.en;
   const [i, setI] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
     const id = setInterval(() => setI((v) => (v + 1) % words.length), 3400);
     return () => clearInterval(id);
   }, [words.length]);
 
+  useEffect(() => {
+    const id = setInterval(() => setImageIndex((v) => (v + 1) % heroImages.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero__bg" aria-hidden="true">
-        {/* Decorative studio photograph: copy remains readable over the dark overlay. */}
         <div className="hero__art">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero-studio.png" alt="" />
+          {heroImages.map((src, index) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={src} src={src} alt="" className={index === imageIndex ? 'is-active' : ''} />
+          ))}
         </div>
         <div className="hero__grid" />
       </div>
@@ -62,6 +76,18 @@ export default function Hero() {
               <b className="num">{s.value}</b>
               <span>{t(s.label)}</span>
             </Reveal>
+          ))}
+        </div>
+        <div className="hero__pager" aria-label="Hero image carousel">
+          {heroImages.map((src, index) => (
+            <button
+              type="button"
+              key={src}
+              className={index === imageIndex ? 'is-active' : ''}
+              aria-label={`Show hero image ${index + 1}`}
+              aria-current={index === imageIndex ? 'true' : undefined}
+              onClick={() => setImageIndex(index)}
+            />
           ))}
         </div>
       </div>

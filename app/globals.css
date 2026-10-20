@@ -720,13 +720,21 @@ html[dir='rtl'] .pre__name {
   background: linear-gradient(90deg, var(--ink) 0%, rgba(20, 22, 26, 0.9) 32%, rgba(20, 22, 26, 0.22) 78%, rgba(20, 22, 26, 0.48) 100%);
 }
 .hero__art img {
+  position: absolute;
+  inset: 0;
   width: 70%;
   height: 100%;
   margin-inline-start: auto;
   display: block;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity 1.1s var(--ease), transform 6s linear;
+  transform: scale(1.03);
+}
+.hero__art img.is-active {
   opacity: 0.82;
+  transform: scale(1);
 }
 .hero__grid {
   position: absolute;
@@ -819,6 +827,26 @@ html[dir='rtl'] .hero__title {
   line-height: 1.5;
   display: block;
 }
+.hero__pager {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+.hero__pager button {
+  width: 28px;
+  height: 2px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.32);
+  border: 0;
+  transition: width 0.3s var(--ease), background 0.3s var(--ease);
+}
+.hero__pager button:hover,
+.hero__pager button:focus-visible,
+.hero__pager button.is-active {
+  width: 42px;
+  background: var(--red-hi);
+}
 html[dir='rtl'] .hero__stat span {
   letter-spacing: 0.02em;
 }
@@ -830,6 +858,9 @@ html[dir='rtl'] .hero__stat span {
   .hero__art::after {
     background: rgba(20, 22, 26, 0.75);
   }
+  .hero__pager {
+    justify-content: flex-start;
+  }
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -838,6 +869,12 @@ html[dir='rtl'] .hero__stat span {
   }
   .hero__stat:nth-child(-n + 2) {
     padding-bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__art img {
+    transition: none;
   }
 }
 
