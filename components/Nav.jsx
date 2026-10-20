@@ -33,11 +33,11 @@ export default function Nav() {
 
   return (
     <>
-      <header className={`nav ${stuck ? 'stuck' : ''}`}>
+      <header className={`nav ${stuck ? 'stuck' : ''} ${path === '/' ? 'nav--on-hero' : ''}`}>
         <div className="nav__in">
           <Link href="/" className="nav__logo" aria-label="Hafix Solution — home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/logo-dark.png" alt="Hafix Solution" />
+            <img src={path === '/' && !stuck ? '/brand/logo-light.png' : '/brand/logo-dark.png'} alt="Hafix Solution" />
           </Link>
 
           <nav className="nav__links" aria-label="Primary">
