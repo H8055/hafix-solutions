@@ -622,7 +622,8 @@ html[dir='rtl'] .pre__name {
   height: 40px;
   border: 1px solid var(--line-2);
   border-radius: var(--r);
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
   flex-direction: column;
 }
