@@ -60,15 +60,19 @@ export function Clients() {
   const { t } = useLang();
   return (
     <section className="clients">
-      <div className="shell">
+      <div className="shell clients__head">
         <p className="clients__label">{t(marqueeTitle)}</p>
+        <span className="clients__count num">12 selected partners</span>
       </div>
-      <div className="clients__grid">
-        {clients.map((c) => (
-          <div className="clients__cell" key={c}>
-            {c}
-          </div>
-        ))}
+      <div className="shell">
+        <div className="clients__grid">
+          {clients.map((c) => (
+            <div className={`clients__cell brand--${c.style}`} key={c.name}>
+              <span className="client-logo__mark" aria-hidden="true">{c.mark}</span>
+              <span className="client-logo__wordmark">{c.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

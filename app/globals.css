@@ -915,66 +915,120 @@ html[dir='rtl'] .hero__stat span {
    CLIENTS (static, hairline grid)
    =========================================================================== */
 .clients {
-  border-block: 1px solid var(--line);
-  background: var(--ink-2);
+  padding-block: clamp(42px, 6vw, 78px);
+  background: var(--ink);
+}
+.clients__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(24px, 3vw, 36px);
 }
 .clients__label {
-  text-align: center;
   font-size: 0.66rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
-  padding-block: clamp(26px, 3vw, 38px);
   margin: 0;
+}
+.clients__count {
+  color: var(--red-hi);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 html[dir='rtl'] .clients__label {
   letter-spacing: 0.12em;
 }
 .clients__grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
 }
 .clients__cell {
-  border-inline-end: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  min-height: 96px;
-  display: grid;
-  place-items: center;
-  padding: 16px 12px;
-  text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  transition: color 0.3s ease, background 0.3s ease;
-}
-.clients__cell:nth-child(6n) {
-  border-inline-end: 0;
+  min-height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 20px;
+  background: var(--ink);
+  color: var(--cream-dim);
+  transition: color 0.3s ease, background 0.3s ease, transform 0.35s var(--ease);
 }
 .clients__cell:hover {
   color: var(--cream);
-  background: var(--ink-3);
+  background: var(--ink-2);
+  transform: translateY(-3px);
 }
+.client-logo__mark {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid currentColor;
+  color: var(--cream);
+  font-size: 0.66rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.35s var(--ease);
+}
+.client-logo__wordmark {
+  max-width: 12ch;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.22;
+}
+.clients__cell:hover .client-logo__mark {
+  color: #fff;
+  border-color: var(--red);
+  background: var(--red);
+  transform: rotate(-5deg);
+}
+.brand--marine .client-logo__mark,
+.brand--dental .client-logo__mark { border-radius: 50%; }
+.brand--bloom .client-logo__mark { border-radius: 50% 50% 2px 50%; }
+.brand--medical .client-logo__mark { border-radius: 2px 50% 2px 2px; }
+.brand--estate .client-logo__mark { transform: rotate(45deg); font-size: 0.56rem; }
+.brand--estate .client-logo__wordmark { margin-inline-start: 3px; }
+.brand--estate:hover .client-logo__mark { transform: rotate(40deg); }
+.brand--sahel .client-logo__mark { border-radius: 50% 2px 50% 2px; }
+.brand--steel .client-logo__mark { border-width: 2px; }
+.brand--foods .client-logo__mark { border-radius: 50% 50% 50% 2px; }
+.brand--danah .client-logo__mark { border-radius: 0 50% 0 50%; }
+.brand--petro .client-logo__mark { border-radius: 50% 50% 2px 2px; }
 @media (max-width: 1000px) {
   .clients__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .clients__cell:nth-child(6n) {
-    border-inline-end: 1px solid var(--line);
-  }
-  .clients__cell:nth-child(4n) {
-    border-inline-end: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 620px) {
+  .clients__head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
   .clients__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .clients__cell:nth-child(4n) {
-    border-inline-end: 1px solid var(--line);
+  .clients__cell {
+    min-height: 106px;
+    gap: 10px;
+    padding: 14px;
   }
-  .clients__cell:nth-child(2n) {
-    border-inline-end: 0;
+  .client-logo__mark {
+    width: 34px;
+    height: 34px;
+  }
+  .client-logo__wordmark {
+    font-size: 0.74rem;
   }
 }
 
