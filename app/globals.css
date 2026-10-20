@@ -708,6 +708,26 @@ html[dir='rtl'] .pre__name {
   z-index: 0;
   pointer-events: none;
 }
+.hero__art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero__art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ink) 0%, rgba(20, 22, 26, 0.9) 32%, rgba(20, 22, 26, 0.22) 78%, rgba(20, 22, 26, 0.48) 100%);
+}
+.hero__art img {
+  width: 70%;
+  height: 100%;
+  margin-inline-start: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.82;
+}
 .hero__grid {
   position: absolute;
   inset: 0;
@@ -803,6 +823,13 @@ html[dir='rtl'] .hero__stat span {
   letter-spacing: 0.02em;
 }
 @media (max-width: 700px) {
+  .hero__art img {
+    width: 100%;
+    opacity: 0.44;
+  }
+  .hero__art::after {
+    background: rgba(20, 22, 26, 0.75);
+  }
   .hero__stats {
     grid-template-columns: repeat(2, 1fr);
   }

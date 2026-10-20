@@ -174,6 +174,8 @@ export function Process() {
 /* -------------------------------------------------------------------------- */
 export function WorksGrid({ items }) {
   const { t } = useLang();
+  const imageFor = (work) =>
+    work.tag === 'branding' ? '/images/work-branding.png' : '/images/work-digital.png';
   return (
     <div className="works">
       {items.map((w, i) => (
@@ -181,7 +183,7 @@ export function WorksGrid({ items }) {
           <Link href={`/works/${w.slug}`} className="wcard">
             <div className="wcard__media">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/works/${w.slug}.svg`} alt={t(w.title)} loading="lazy" />
+              <img src={imageFor(w)} alt={t(w.title)} loading="lazy" />
               <span className="wcard__veil" />
               <span className="wcard__tag">{w.year}</span>
             </div>

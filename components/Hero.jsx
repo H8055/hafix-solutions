@@ -20,6 +20,11 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__bg" aria-hidden="true">
+        {/* Decorative studio photograph: copy remains readable over the dark overlay. */}
+        <div className="hero__art">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/hero-studio.png" alt="" />
+        </div>
         <div className="hero__grid" />
       </div>
 

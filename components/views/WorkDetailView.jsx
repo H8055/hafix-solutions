@@ -13,6 +13,7 @@ export default function WorkDetailView({ slug }) {
   const project = works[idx] || works[0];
   const detail = workDetails[project.slug];
   const next = works[(idx + 1) % works.length];
+  const projectImage = project.tag === 'branding' ? '/images/work-branding.png' : '/images/work-digital.png';
 
   const blocks = [
     { label: { en: 'The challenge', ar: 'التحدي' }, value: detail?.challenge },
@@ -67,7 +68,7 @@ export default function WorkDetailView({ slug }) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/works/${project.slug}.svg`}
+                src={projectImage}
                 alt={t(project.title)}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
               />
