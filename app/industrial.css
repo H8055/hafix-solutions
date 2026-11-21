@@ -118,7 +118,7 @@ html[dir='rtl'] .ims {
   color: var(--ind-text);
   text-decoration: none;
 }
-.ind-logo img { height: 30px; width: auto; }
+.ind-logo img { height: 34px; width: auto; }
 .ind-logo__div {
   border-inline-start: 1px solid var(--ind-line-2);
   padding-inline-start: 12px;

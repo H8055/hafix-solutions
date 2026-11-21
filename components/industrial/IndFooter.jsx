@@ -15,7 +15,7 @@ export default function IndFooter() {
           <div>
             <div className="ind-logo" style={{ marginBottom: 16 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/logo-industrial.svg" alt="Hafix Company Ltd" />
+              <img src="/brand/logo-light.png" alt="Hafix Company Ltd" />
             </div>
             <p style={{ color: '#a8aeb1', fontSize: '.88rem', lineHeight: 1.7, maxWidth: '40ch' }}>
               {t(indFooter.blurb)}

@@ -14,8 +14,7 @@ export default function IndNav() {
       <div className="ind-shell ind-top__in">
         <Link href="/industrial-materials-supply" className="ind-logo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/logo-industrial.svg" alt="Hafix Company Ltd" />
-          <span className="ind-logo__div">{t(ind.division)}</span>
+          <img src="/brand/logo-light.png" alt="Hafix Company Ltd" />
         </Link>
 
         <nav className="ind-links" aria-label="Primary">
