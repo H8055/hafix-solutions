@@ -3,8 +3,7 @@ import './globals.css';
 import { LanguageProvider } from '@/lib/i18n';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import { Preloader, Floaters } from '@/components/Chrome';
-import ScrollProgress from '@/components/ScrollProgress';
+import LayoutSwitch from '@/components/LayoutSwitch';
 import { contact, services, company } from '@/lib/content';
 
 const display = Source_Serif_4({
@@ -150,13 +149,7 @@ export default function RootLayout({ children }) {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           />
-          <ScrollProgress />
-          <Preloader />
-          <span className="grain" aria-hidden="true" />
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-          <Floaters whatsappHref={contact.whatsappHref} />
+          <LayoutSwitch>{children}</LayoutSwitch>
         </LanguageProvider>
       </body>
     </html>

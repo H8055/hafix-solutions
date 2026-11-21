@@ -121,11 +121,12 @@ button {
 }
 
 /* --- typography --------------------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-.serif {
+/* Scoped away from .ind: the industrial business unit sets its own type. */
+h1:not(.ims *),
+h2:not(.ims *),
+h3:not(.ims *),
+h4:not(.ims *),
+.serif:not(.ims *) {
   font-family: var(--font-display), var(--font-ar-display), Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.015em;
@@ -133,11 +134,11 @@ h4,
   text-wrap: balance;
 }
 
-html[dir='rtl'] h1,
-html[dir='rtl'] h2,
-html[dir='rtl'] h3,
-html[dir='rtl'] h4,
-html[dir='rtl'] .serif {
+html[dir='rtl'] h1:not(.ims *),
+html[dir='rtl'] h2:not(.ims *),
+html[dir='rtl'] h3:not(.ims *),
+html[dir='rtl'] h4:not(.ims *),
+html[dir='rtl'] .serif:not(.ims *) {
   font-family: var(--font-ar-display), var(--font-display), sans-serif;
   font-weight: 600;
   letter-spacing: 0;

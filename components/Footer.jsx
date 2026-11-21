@@ -72,6 +72,15 @@ export default function Footer() {
               </li>
             </ul>
 
+            <h5 style={{ marginTop: 26 }}>{t({ en: 'Divisions', ar: 'القطاعات' })}</h5>
+            <ul>
+              <li>
+                <Link href="/industrial-materials-supply">
+                  {t({ en: 'Industrial Materials Supply', ar: 'توريد المواد الصناعية' })}
+                </Link>
+              </li>
+            </ul>
+
             <h5 style={{ marginTop: 26 }}>{t(ui.footer.officesLabel)}</h5>
             <ul>
               {contact.offices.map((o) => (
