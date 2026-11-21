@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLang } from '@/lib/i18n';
 import { nav, services, contact, company, ui } from '@/lib/content';
+import Icon from '@/components/Icons';
 
 export default function Footer() {
   const { t } = useLang();
@@ -92,8 +93,16 @@ export default function Footer() {
           </span>
           <div className="foot__socials">
             {contact.socials.map((s) => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer">
-                {s.label}
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="foot__soc"
+              >
+                <Icon name={s.icon} size={17} stroke={1.5} />
+                {s.handle && <span>{s.handle}</span>}
               </a>
             ))}
           </div>

@@ -1973,11 +1973,39 @@ html[dir='rtl'] .foot h5 {
 .foot__bar a:hover {
   color: var(--red-hi);
 }
+/* the floating WhatsApp / scroll buttons sit bottom-right — keep the legal
+   line clear of them instead of letting it run underneath */
+@media (min-width: 761px) {
+  .foot__bar {
+    padding-inline-end: 176px;
+  }
+}
 .foot__socials {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
 }
+.foot__soc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding-inline: 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--cream-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, transform 0.3s var(--ease);
+}
+.foot__soc:hover {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+.foot__soc svg { flex: 0 0 auto; }
 
 /* ===========================================================================
    FLOATING UI
