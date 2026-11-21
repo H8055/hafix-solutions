@@ -77,6 +77,20 @@ function Products() {
         <div className="ind-cats">
           {indCategories.map((c) => (
             <article className="ind-cat" id={c.id} key={c.id}>
+              <figure className="ind-cat__fig">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.img}
+                  alt={t({
+                    en: `${t(c.title)} — Hafix material supply`,
+                    ar: `${t(c.title)} — توريد مواد هافيكس`,
+                  })}
+                  loading="lazy"
+                  decoding="async"
+                  width="1100"
+                  height="733"
+                />
+              </figure>
               <div className="ind-cat__top">
                 <span className="ind-cat__icon">
                   <Icon name={c.icon} size={21} stroke={1.5} />
