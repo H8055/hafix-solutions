@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useLang } from '@/lib/i18n';
 import { ind, indNav, indContact } from '@/lib/industrial';
+import DivisionToggle from '@/components/DivisionToggle';
 
 export default function IndNav() {
   const { t, lang, toggle } = useLang();
@@ -26,6 +27,7 @@ export default function IndNav() {
         </nav>
 
         <div className="ind-top__act">
+          <DivisionToggle variant="dark" />
           <button className="ind-lang" onClick={toggle} aria-label="Switch language">
             {lang === 'en' ? 'العربية' : 'English'}
           </button>

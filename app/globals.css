@@ -2362,3 +2362,93 @@ html[dir='rtl'] .tl__year {
   max-width: 52ch;
 }
 .works-empty .btn { margin-top: 6px; }
+
+/* ---------------------------------------------------------------------------
+   Division toggle — Tech / Materials
+   --------------------------------------------------------------------------- */
+.divt {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 3px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: rgba(20, 22, 26, 0.04);
+  isolation: isolate;
+}
+.divt__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background: var(--red);
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+  z-index: -1;
+}
+.divt.is-materials .divt__thumb { transform: translateX(100%); }
+html[dir='rtl'] .divt__thumb {
+  left: auto;
+  right: 3px;
+  transform: translateX(0);
+}
+html[dir='rtl'] .divt.is-materials .divt__thumb { transform: translateX(-100%); }
+
+.divt__opt {
+  position: relative;
+  height: 30px;
+  min-width: 74px;
+  padding-inline: 14px;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.26s ease;
+  white-space: nowrap;
+}
+.divt__opt:hover { color: var(--cream); }
+.divt__opt.on { color: #fff; }
+
+/* dark variant (industrial bar) */
+.divt--dark {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+.divt--dark .divt__thumb { background: var(--ind-amber, #e8a33d); }
+.divt--dark .divt__opt { color: #9aa0a4; }
+.divt--dark .divt__opt:hover { color: #eceae6; }
+.divt--dark .divt__opt.on { color: #101314; }
+
+/* keep the hero nav legible while the bar is transparent over the photo */
+.nav--on-hero:not(.stuck) .divt { border-color: rgba(255, 255, 255, 0.34); }
+.nav--on-hero:not(.stuck) .divt__opt { color: rgba(255, 255, 255, 0.78); }
+.nav--on-hero:not(.stuck) .divt__opt.on { color: #fff; }
+
+@media (max-width: 1080px) {
+  .nav__right .divt { display: none; }
+}
+
+/* compact switch on small screens (industrial bar keeps it visible) */
+@media (max-width: 760px) {
+  .ind-top__act .divt {
+    height: 34px;
+  }
+  .ind-top__act .divt__opt {
+    min-width: 58px;
+    height: 26px;
+    padding-inline: 9px;
+    font-size: 0.66rem;
+  }
+  .ind-top__in { gap: 10px; }
+  .ind-top__act { gap: 8px; }
+}
+@media (max-width: 460px) {
+  .ind-top__act .divt { display: none; }
+}

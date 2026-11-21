@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useLang } from '@/lib/i18n';
 import { nav, contact } from '@/lib/content';
 import Icon from '@/components/Icons';
+import DivisionToggle from '@/components/DivisionToggle';
 
 export default function Nav() {
   const { t, lang, toggle } = useLang();
@@ -52,6 +53,7 @@ export default function Nav() {
           </nav>
 
           <div className="nav__right">
+            <DivisionToggle variant="light" />
             <button className="lang" onClick={toggle} aria-label="Switch language">
               <Icon name="globe" size={15} />
               {t({ en: 'العربية', ar: 'English' })}
@@ -96,6 +98,9 @@ export default function Nav() {
             <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </div>
           <div>{t(contact.addressShort)}</div>
+          <div style={{ paddingTop: 8 }}>
+            <DivisionToggle variant="light" />
+          </div>
           <div style={{ display: 'flex', gap: 12, paddingTop: 8 }}>
             <button className="lang" onClick={toggle}>
               <Icon name="globe" size={15} />
