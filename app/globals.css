@@ -2368,8 +2368,10 @@ html[dir='rtl'] .tl__year {
    --------------------------------------------------------------------------- */
 .divt {
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  width: 182px;
   height: 38px;
   padding: 3px;
   border: 1px solid var(--line-2);
@@ -2386,7 +2388,8 @@ html[dir='rtl'] .tl__year {
   border-radius: 999px;
   background: var(--red);
   transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
 }
 .divt.is-materials .divt__thumb { transform: translateX(100%); }
 html[dir='rtl'] .divt__thumb {
@@ -2399,8 +2402,9 @@ html[dir='rtl'] .divt.is-materials .divt__thumb { transform: translateX(-100%); 
 .divt__opt {
   position: relative;
   height: 30px;
-  min-width: 74px;
-  padding-inline: 14px;
+  width: 100%;
+  min-width: 0;
+  padding-inline: 4px;
   border: 0;
   background: transparent;
   border-radius: 999px;
@@ -2412,11 +2416,16 @@ html[dir='rtl'] .divt.is-materials .divt__thumb { transform: translateX(-100%); 
   cursor: pointer;
   transition: color 0.26s ease;
   white-space: nowrap;
+  z-index: 1;
 }
 .divt__opt:hover { color: var(--cream); }
 .divt__opt.on { color: #fff; }
 
 /* dark variant (industrial bar) */
+.ind-drawer .divt,
+.ind-drawer__foot .divt {
+  justify-self: start;
+}
 .divt--dark {
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.05);
@@ -2440,10 +2449,11 @@ html[dir='rtl'] .divt.is-materials .divt__thumb { transform: translateX(-100%); 
   .ind-top__act .divt {
     height: 34px;
   }
+  .ind-top__act .divt {
+    width: 140px;
+  }
   .ind-top__act .divt__opt {
-    min-width: 58px;
     height: 26px;
-    padding-inline: 9px;
     font-size: 0.66rem;
   }
   .ind-top__in { gap: 10px; }
