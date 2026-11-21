@@ -19,10 +19,12 @@ export function Testimonials() {
   }, []);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || !testimonials.length) return;
     const id = setInterval(() => go(1), 7000);
     return () => clearInterval(id);
   }, [paused, go]);
+
+  if (!testimonials.length) return null;
 
   const item = testimonials[i];
   const initials = t(item.author)
@@ -132,7 +134,6 @@ export function ContactBlock({ withForm = true }) {
     phone: '',
     company: '',
     service: services[0].slug,
-    budget: '',
     message: '',
     consent: true,
   });
@@ -242,17 +243,6 @@ export function ContactBlock({ withForm = true }) {
                   {services.map((s) => (
                     <option key={s.slug} value={s.slug}>
                       {t(s.title)}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="field">
-                <label htmlFor="c-budget">{t(ui.form.budget)}</label>
-                <select id="c-budget" value={form.budget} onChange={set('budget')}>
-                  <option value="">—</option>
-                  {(ui.budgets[lang] || ui.budgets.en).map((b) => (
-                    <option key={b} value={b}>
-                      {b}
                     </option>
                   ))}
                 </select>

@@ -62,14 +62,22 @@ export function Clients() {
     <section className="clients">
       <div className="shell clients__head">
         <p className="clients__label">{t(marqueeTitle)}</p>
-        <span className="clients__count num">12 selected partners</span>
+        <span className="clients__count num">{clients.length} selected partners</span>
       </div>
       <div className="shell">
         <div className="clients__grid">
           {clients.map((c) => (
             <div className={`clients__cell brand--${c.style}`} key={c.name}>
-              <span className="client-logo__mark" aria-hidden="true">{c.mark}</span>
-              <span className="client-logo__wordmark">{c.name}</span>
+              {c.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="client-logo__img" src={c.logo} alt={c.name} loading="lazy" />
+              ) : (
+                <>
+                  <span className="client-logo__mark" aria-hidden="true">{c.mark}</span>
+                  <span className="client-logo__wordmark">{c.name}</span>
+                </>
+              )}
+              {c.country && <span className="client-logo__country">{t(c.country)}</span>}
             </div>
           ))}
         </div>
@@ -180,6 +188,21 @@ export function WorksGrid({ items }) {
   const { t } = useLang();
   const imageFor = (work) =>
     work.tag === 'branding' ? '/images/work-branding.png' : '/images/work-digital.png';
+
+  if (!items.length) {
+    return (
+      <div className="works-empty">
+        <span className="works-empty__mark" aria-hidden="true">✳</span>
+        <h3>{t(sections.works.empty.title)}</h3>
+        <p>{t(sections.works.empty.body)}</p>
+        <Link href="/contact" className="btn btn--solid">
+          {t({ en: 'Request the portfolio', ar: 'اطلب ملف الأعمال' })}
+          <Icon name="arrow" size={16} stroke={1.7} />
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="works">
       {items.map((w, i) => (

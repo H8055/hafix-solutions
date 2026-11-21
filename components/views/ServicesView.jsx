@@ -71,7 +71,7 @@ export default function ServicesView() {
           <Reveal delay={160}>
             <p className="phead__sub" style={{ marginTop: 24 }}>
               {t({
-                en: 'Everything below is delivered in-house in Dammam, in English and Arabic, with the same project manager from kickoff to launch.',
+                en: 'Everything below is delivered in-house across our Saudi, UAE and India teams, in English and Arabic, with the same project manager from kickoff to launch.',
                 ar: 'كل ما يلي يُنفَّذ داخل استوديونا في الدمام، بالإنجليزية والعربية، مع مدير مشروع واحد من الانطلاقة حتى الإطلاق.',
               })}
             </p>

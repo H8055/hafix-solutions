@@ -36,6 +36,7 @@ export default function WorksView() {
 
       <section className="section" style={{ paddingTop: 'clamp(30px, 4vw, 50px)' }}>
         <div className="shell">
+          {works.length > 0 && (
           <div className="filters">
             {workFilters.map((f) => (
               <button
@@ -53,6 +54,7 @@ export default function WorksView() {
               {items.length} / {works.length}
             </span>
           </div>
+          )}
           <WorksGrid items={items} key={filter} />
         </div>
       </section>

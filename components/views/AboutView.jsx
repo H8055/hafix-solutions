@@ -66,7 +66,7 @@ export default function AboutView() {
         <div className="shell">
           <SecHead
             kicker={{ en: 'Our story', ar: 'قصتنا' }}
-            title={{ en: 'From a small room in Dammam', ar: 'من غرفة صغيرة في الدمام' }}
+            title={{ en: 'From a small room in the Eastern Province', ar: 'من غرفة صغيرة في المنطقة الشرقية' }}
             body={{
               en: 'Eight years, one address, and a belief that marketing, design and engineering work better when one team owns all three.',
               ar: 'ثماني سنوات وعنوان واحد، وقناعة بأن التسويق والتصميم والهندسة تعمل بشكل أفضل حين يمتلكها فريق واحد.',

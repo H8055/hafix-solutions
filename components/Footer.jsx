@@ -70,6 +70,19 @@ export default function Footer() {
                 {t(contact.hours)}
               </li>
             </ul>
+
+            <h5 style={{ marginTop: 26 }}>{t(ui.footer.officesLabel)}</h5>
+            <ul>
+              {contact.offices.map((o) => (
+                <li key={o.city.en}>
+                  <a href={`tel:${o.phoneHref}`}>
+                    <span className="foot__flag" aria-hidden="true">{o.flag}</span>
+                    {t(o.city)}
+                    <span className="foot__offphone">{o.phone}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -84,7 +97,9 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <span>{t(ui.footer.built)}</span>
+          <span>
+            {t(ui.footer.cr)} {contact.legal.cr} · {t(ui.footer.vat)} {contact.legal.vat}
+          </span>
         </div>
       </div>
     </footer>

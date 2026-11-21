@@ -50,7 +50,7 @@ export default function WorkDetailView({ slug }) {
             >
               <span className="pill">{t(project.category)}</span>
               <span className="pill num">{project.year}</span>
-              <span className="pill">{t({ en: 'Dammam, KSA', ar: 'الدمام، السعودية' })}</span>
+              <span className="pill">{t({ en: 'Saudi Arabia', ar: 'السعودية' })}</span>
             </div>
           </Reveal>
         </div>

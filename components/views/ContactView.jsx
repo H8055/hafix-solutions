@@ -6,6 +6,7 @@ import { useLang } from '@/lib/i18n';
 import Reveal from '@/components/Reveal';
 import { ContactBlock, Faq } from '@/components/Interactions';
 import { CtaBand, SecHead } from '@/components/Sections';
+import Offices from '@/components/Offices';
 import Icon from '@/components/Icons';
 
 export default function ContactView() {
@@ -68,13 +69,13 @@ export default function ContactView() {
               </svg>
               <div className="map__pin">
                 <Icon name="pin" size={34} stroke={1.2} />
-                <b>{t({ en: 'Dammam', ar: 'الدمام' })}</b>
+                <b>{t({ en: 'Al Jubail', ar: 'الجبيل' })}</b>
                 <span className="muted" style={{ maxWidth: 320, fontSize: '0.92rem' }}>
                   {t(contact.address)}
                 </span>
                 <a
                   className="btn btn--light btn--sm"
-                  href={`https://maps.google.com/?q=${encodeURIComponent('Dammam, Eastern Province, Saudi Arabia')}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent('Ibn Al Bitar, Al Safa District, Al Jubail 35514, Saudi Arabia')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -86,6 +87,7 @@ export default function ContactView() {
         </div>
       </section>
 
+      <Offices />
       <Faq />
       <CtaBand />
     </>
